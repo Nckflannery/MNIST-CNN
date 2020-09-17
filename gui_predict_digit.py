@@ -33,7 +33,7 @@ class App(tk.Tk):
 
         # Create elements
         self.canvas = tk.Canvas(self, width=300, height=300, bg='black')
-        self.label = tk.Label(self, font=('Helvetica', 48), text='Thinking...')
+        self.label = tk.Label(self, font=('Helvetica', 36), text='Thinking...')
         self.classify_btn = tk.Button(self, text = 'Recognise', command = self.classify_handwriting)
         self.button_clear = tk.Button(self, text = 'Clear', command = self.clear_all)
 
