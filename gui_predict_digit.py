@@ -22,7 +22,6 @@ def predict_digit(img):
 
     # Predict the class using loaded model
     pred = model.predict([img])[0]
-    print(pred)
     return np.argmax(pred), max(pred)
 
 
@@ -33,7 +32,7 @@ class App(tk.Tk):
         self.x = self.y = 0
 
         # Create elements
-        self.canvas = tk.Canvas(self, width=300, height=300, bg='white')
+        self.canvas = tk.Canvas(self, width=300, height=300, bg='black')
         self.label = tk.Label(self, font=('Helvetica', 48), text='Thinking...')
         self.classify_btn = tk.Button(self, text = 'Recognise', command = self.classify_handwriting)
         self.button_clear = tk.Button(self, text = 'Clear', command = self.clear_all)
@@ -57,13 +56,13 @@ class App(tk.Tk):
         img = ImageGrab.grab(rect)
 
         digit, acc = predict_digit(img)
-        self.label.configure(text=f'{str(digit)}, {str(int(acc*100))}%')
+        self.label.configure(text=f'Guess: {str(digit)}, \n Confidence: {str(int(acc*100))}%')
     
     def draw_lines(self, event):
         self.x = event.x
         self.y = event.y
-        r = 14
-        self.canvas.create_oval(self.x - r, self.y - r, self.x + r, self.y + r, fill='black')
+        r = 8
+        self.canvas.create_oval(self.x - r, self.y - r, self.x + r, self.y + r, fill='white', outline='white')
     
 app = App()
 mainloop()
