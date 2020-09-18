@@ -1,2 +1,2 @@
 # MNIST-CNN
- Handwritten digit recognition using convvolutional neural networks
+ Handwritten digit recognition using convolutional neural networks
